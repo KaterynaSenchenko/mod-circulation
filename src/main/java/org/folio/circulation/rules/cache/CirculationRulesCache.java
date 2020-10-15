@@ -131,8 +131,7 @@ public final class CirculationRulesCache {
 
       if (reloadNeeded(rules)) {
         rules.reloadInitiated = true;
-        reloadRules(rules, circulationRulesClient)
-          .thenCompose(r -> r.after(updatedRules -> ofAsync(() -> updatedRules.drools)));
+        reloadRules(rules, circulationRulesClient);
       }
 
       return cfDrools;
