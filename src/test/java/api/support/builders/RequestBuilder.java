@@ -11,11 +11,11 @@ import static org.folio.circulation.support.json.JsonStringArrayPropertyFetcher.
 import java.util.List;
 import java.util.UUID;
 
-import api.support.http.IndividualResource;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 import org.joda.time.LocalDate;
 
+import api.support.http.IndividualResource;
 import io.vertx.core.json.JsonObject;
 
 public class RequestBuilder extends JsonBuilder implements Builder {
@@ -299,6 +299,10 @@ public class RequestBuilder extends JsonBuilder implements Builder {
       this.position,
       this.pickupServicePointId,
       this.tags);
+  }
+
+  public RequestBuilder withNoItemId() {
+    return withItemId(null);
   }
 
   public RequestBuilder forItem(IndividualResource item) {
