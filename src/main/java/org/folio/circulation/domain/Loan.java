@@ -140,6 +140,10 @@ public class Loan implements ItemRelatedRecord, UserRelatedRecord {
     return getProperty(representation, ACTION);
   }
 
+  public boolean getLostItemHasBeenBilled() {
+    return getBooleanProperty(representation, LOST_ITEM_HAS_BEEN_BILLED);
+  }
+
   private void changeCheckInServicePointId(UUID servicePointId) {
     write(representation, "checkinServicePointId", servicePointId);
   }
